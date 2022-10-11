@@ -1,3 +1,3 @@
 const Thought = require('./Thought');
 
-module.exports = { Thought };
+module.exports = { Review };

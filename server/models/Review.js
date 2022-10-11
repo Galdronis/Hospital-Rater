@@ -19,7 +19,7 @@ const reviewSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  reviews: [
+  comments: [
     {
       Text: {
         type: String,
