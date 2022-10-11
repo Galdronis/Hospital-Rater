@@ -1,23 +1,23 @@
-const { Thought } = require('../models');
+const { Review } = require('../models');
 
 const resolvers = {
   Query: {
-    thoughts: async () => {
-      return Thought.find().sort({ createdAt: -1 });
+    reviews: async () => {
+      return Review.find().sort({ createdAt: -1 });
     },
 
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+    review: async (parent, { reviewId }) => {
+      return Review.findOne({ _id: reviewId });
     },
   },
 
   Mutation: {
-    addThought: async (parent, { thoughtText, thoughtAuthor }) => {
-      return Thought.create({ thoughtText, thoughtAuthor });
+    addReview: async (parent, { reviewText, reviewAuthor }) => {
+      return review.create({ reviewText, reviewAuthor });
     },
-    addComment: async (parent, { thoughtId, commentText }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
+    addComment: async (parent, { reviewId, commentText }) => {
+      return Review.findOneAndUpdate(
+        { _id: reviewId },
         {
           $addToSet: { comments: { commentText } },
         },
@@ -27,12 +27,12 @@ const resolvers = {
         }
       );
     },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
+    removeReview: async (parent, { reviewId }) => {
+      return Review.findOneAndDelete({ _id: reviewId });
     },
-    removeComment: async (parent, { thoughtId, commentId }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
+    removeComment: async (parent, { reviewId, commentId }) => {
+      return review.findOneAndUpdate(
+        { _id: reviewId },
         { $pull: { comments: { _id: commentId } } },
         { new: true }
       );
