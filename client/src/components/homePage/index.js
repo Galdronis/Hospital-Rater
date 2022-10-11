@@ -1,8 +1,6 @@
 import React from 'react';
 
-const homePage = () => {
-  
-
+const homePageFunction = () => {
   return (
     <div>
       <h1>HomePage Bish</h1>
@@ -13,4 +11,4 @@ const homePage = () => {
   );
 };
 
-export default homePage;
+export default homePageFunction;
