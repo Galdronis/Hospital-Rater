@@ -1,12 +1,12 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import homePage from '../components/homePage';
+import Login from '../components/LoginBody/index';
 
 
 import { QUERY_THOUGHTS } from '../utils/queries';
 
-const Home = () => {
+const LoginView = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
   const thoughts = data?.thoughts || [];
 
@@ -17,7 +17,7 @@ const Home = () => {
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: '1px dotted #1a1a1a' }}
         >
-          <homePage
+          <Login
             />
           
         </div>
@@ -26,4 +26,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default LoginView;
