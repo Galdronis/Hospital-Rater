@@ -13,16 +13,24 @@ const hospitalSchema = new Schema ({
         required: 'please enter hospital location',
         trim: true
     },
-    ratingArray: [
-
-    ],
     rating:
     {
         type: Number,
         get: (arr) => ratingAverage(arr)
-
     }
-})
+},
+{
+    toJSON: {
+      virtuals: true,
+    },
+  }
+);
+tagSchema
+  .virtual('ratingArray')
+  // Getter
+  .get(function () {
+    return [];
+  })
 
 
 const Hospital = model('Hospital', hospitalSchema);
