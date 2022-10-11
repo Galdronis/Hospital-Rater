@@ -14,7 +14,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          by the Tech Thoughts team.
+          by the Receding Hairlines team.
         </h4>
       </div>
     </footer>
