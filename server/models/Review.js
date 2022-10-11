@@ -1,15 +1,15 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const thoughtSchema = new Schema({
-  thoughtText: {
+const reviewSchema = new Schema({
+  reviewText: {
     type: String,
-    required: 'You need to leave a thought!',
+    required: 'Please leave a review',
     minlength: 1,
     maxlength: 280,
     trim: true,
   },
-  thoughtAuthor: {
+  reviewUser: {
     type: String,
     required: true,
     trim: true,
@@ -19,9 +19,9 @@ const thoughtSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  comments: [
+  reviews: [
     {
-      commentText: {
+      Text: {
         type: String,
         required: true,
         minlength: 1,
@@ -36,6 +36,6 @@ const thoughtSchema = new Schema({
   ],
 });
 
-const Thought = model('Thought', thoughtSchema);
+const Review = model('Review', reviewSchema);
 
-module.exports = Thought;
+module.exports = Review;
