@@ -19,7 +19,14 @@ const reviewSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  reviews: [
+  hospitalRating:
+  {
+    type: Number,
+    required: true,
+    trim: true,
+    maxlength: 5
+  },
+  comment: [
     {
       Text: {
         type: String,
