@@ -1,10 +1,10 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Thought {
+  type Review {
     _id: ID
-    thoughtText: String
-    thoughtAuthor: String
+    reviewText: String
+    reviewUser: String
     createdAt: String
     comments: [Comment]!
   }
