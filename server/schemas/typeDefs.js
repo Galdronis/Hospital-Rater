@@ -16,8 +16,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    thoughts: [Thought]!
-    thought(thoughtId: ID!): Thought
+    reviewss: [Review]!
+    review(reviewId: ID!): Thought
   }
 
   type Mutation {
