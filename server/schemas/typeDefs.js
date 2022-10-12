@@ -1,52 +1,24 @@
 const { gql } = require('apollo-server-express');
+const { Hospital } = require('../models');
+
 
 const typeDefs = gql`
     type Hospital {
       _id: ID
-      name: String
-      location: String
-      reviews: String
-      reviewRating: Number
-      rating: Number
-    }
-    type Query {
-      _id: ID
       hospitalName: String
       location: String
       reviews: String
-      reviewRating: Number
-      rating: Number
+      # reviewRating: Number
+      # rating: Number
     }
-    type Mutation {
-      addHospital: (name: String, location: String): Hospital
-      addReview: (reviews: String): Hospital
+    type Query {
+      hospital: [Hospital]
+      hospitalName: String
     }
-    
-  # type Review {
-  #   _id: ID
-  #   reviewText: String
-  #   reviewUser: String
-  #   createdAt: String
-  #   comments: [Comment]!
-  # }
-
-  # type Comment {
-  #   _id: ID
-  #   commentText: String
-  #   createdAt: String
-  # }
-
-  # type Query {
-  #   reviews: [Review]!
-  #   review(reviewId: ID!): Review
-  # }
-
-  # type Mutation {
-    # addThought(thoughtText: String!, thoughtAuthor: String!): Thought
-    # addComment(thoughtId: ID!, commentText: String!): Thought
-    # removeThought(thoughtId: ID!): Thought
-    # removeComment(thoughtId: ID!, commentId: ID!): Thought
-  # }
+    # type Mutation {
+    #   addHospital: (hospitalName: String, location: String): [Hospital]
+    #   addReview: (reviews: String): [Hospital]
+    # }
 `;
 
 module.exports = typeDefs;
