@@ -7,6 +7,7 @@ import Auth from '../../utils/auth';
 
 const Create = () => {
   const [formState, setFormState] = useState({
+    username: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -53,7 +54,7 @@ const Create = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
+                  placeholder="Your First Name"
                   name="firstName"
                   type="text"
                   value={formState.firstName}
@@ -61,10 +62,18 @@ const Create = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="Your username"
+                  placeholder="Your Last Name"
                   name="lastName"
                   type="text"
                   value={formState.lastName}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Your User Name"
+                  name="Username"
+                  type="text"
+                  value={formState.username}
                   onChange={handleChange}
                 />
                 <input
