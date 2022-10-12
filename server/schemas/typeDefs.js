@@ -8,7 +8,7 @@ const typeDefs = gql`
       hospitalName: String
       location: String
       reviews: String
-      # reviewRating: Number
+      reviewRating: Number
       # rating: Number
     }
     type Query {
