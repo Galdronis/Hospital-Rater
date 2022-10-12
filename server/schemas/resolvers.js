@@ -3,8 +3,6 @@ const { Review, User } = require('../models');
 
 const { Hospital } = require('../models');
 
-
-
 const resolvers = {
   Query: {
     hospital: async () => Hospital.find()
@@ -30,7 +28,7 @@ const resolvers = {
   //     return Hospital.create({ hospitalName, location })
   //   }
   // } 
-  }
+  
 //     addReview: async (parent, { reviews }) => {
 //       return Hospital.create({ reviews })
 //     }
