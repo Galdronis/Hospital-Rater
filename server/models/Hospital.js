@@ -13,23 +13,12 @@ const hospitalSchema = new Schema ({
         required: 'please enter hospital location',
         trim: true
     },
-    reviews: [
+    review: [
         {
-        type: String,
-        maxlength: 280
+        type: Schema.Types.ObjectId,
+        ref: 'Review'
         }
     ],
-    reviewRating: [
-        {
-        type: Number,
-        maxlength: 5
-        }
-    ],
-    rating:
-    {
-        type: Number,
-        get: (arr) => ratingAverage(arr)
-    }
 },
 )
 // {
