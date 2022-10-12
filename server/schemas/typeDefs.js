@@ -1,5 +1,5 @@
 const { gql } = require('apollo-server-express');
-const { Hospital } = require('../models');
+
 
 const typeDefs = gql`
     type Hospital {
@@ -12,10 +12,11 @@ const typeDefs = gql`
       hospital: [Hospital]
       hospitalName: String
     }
-    # type Mutation {
-    #   addHospital: (hospitalName: String, location: String): [Hospital]
-    #   addReview: (reviews: String): [Hospital]
-    # }
+    type Mutation {
+      createUser(name: String, email: String, id: String, hospitalId: String): Hospital
+      # addHospital: (hospitalName: String, location: String): [Hospital]
+      # addReview: (reviews: String): [Hospital]
+    }
 
 `;
 
