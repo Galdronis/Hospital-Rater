@@ -22,7 +22,7 @@ const hospitalSchema = new Schema ({
     reviewRating: [
         {
         type: Number,
-        max: 5
+        maxlength: 5
         }
     ],
     rating:
