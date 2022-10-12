@@ -12,12 +12,11 @@ const resolvers = {
   Mutation: {
     createUser: async (parent, args, context, info) => {
       const user = await User.create(args)
-      const hospital = await Hospital.create({ userId: user.id, })
+      // const hospital = await Hospital.create({ userId: user.id, })
       const data = {
+        username: user.username,
         email: user.email,
-        name: user.username,
-        id: user.id,
-        hospitalId: user.hospital.id
+        password: user.password
       }
     }
   },
