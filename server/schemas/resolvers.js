@@ -1,15 +1,18 @@
-const { Review } = require('../models');
+const { Hospital } = require('../models');
 
 const resolvers = {
   Query: {
-    reviews: async () => {
-      return Review.find().sort({ createdAt: -1 });
-    },
-
-    review: async (parent, { reviewId }) => {
-      return Review.findOne({ _id: reviewId });
+    hospitals: async () => Category.find(),
+    hospital: async (parent, { hospitalId }) => {
+      return Hospital.findOne({ _id: hospitalId });
     },
   },
+
+    Mutation: {
+      addHospital: async (parent, { hospitalName, location }) => {
+        return hospital.create({ hospitalName, location })
+      }
+    }
 
   // Mutation: {
   //   addReview: async (parent, { reviewText, reviewAuthor }) => {
