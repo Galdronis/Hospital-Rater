@@ -1,0 +1,23 @@
+.navBarLinks1 {
+  padding: 10px;
+  margin: 10px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 24px;
+  border-radius: 5px;
+
+}
+
+.navBarLinks1:hover {
+  cursor: pointer;
+  background-color: rgb(1, 11, 1);
+}
+
+@media screen and (max-width: 994px) {
+  .navBarLinks1 {
+    display: none;
+  }
+ 
+}
+
