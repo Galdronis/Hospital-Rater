@@ -19,13 +19,19 @@ const typeDefs = gql`
       location: String
       reviews: [Review]
     }
+    type Auth {
+    token: ID!
+    user: User
+  }
     type Query {
       hospital: [Hospital]
       hospitalName: String
     }
     type Mutation {
       createUser(username: String, email: String, id: String, hospitalId: String, password: String): User
+      login(email: String!, password: String!): Auth
       addHospital(hospitalName: String, location: String): Hospital
+
       # addReview: (reviews: String): [Hospital]
     }
 `;
