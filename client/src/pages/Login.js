@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import Login from '../components/LoginBody/index';
 
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { QUERY_THOUGHTS } from '../utils/queries'; 
 
 const LoginView = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
