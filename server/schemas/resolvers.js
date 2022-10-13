@@ -10,21 +10,25 @@ const resolvers = {
     createUser: async (parent, args, context) => {
       const user = await User.create(args)
       console.log(user)
-      // const hospital = await Hospital.create({ userId: user.id, })
-      // const data = {
-      //   username: user.username,
-      //   email: user.email,
-      //   password: user.password
-      // }
       return user
-    }
-
-  },
-  Mutation: {
+    },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new AuthenticationError('Incorrect credentials');
+      } 
+      const correctPw = await user.isCorrectPassword(password);
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+      const token = signToken(user);
+      return { token, user };
+    },
     addHospital: async (parent, { hospitalName, location }) => {
       return Hospital.create({ hospitalName, location })
     }
-  } 
+
+  }
 };
 
   
