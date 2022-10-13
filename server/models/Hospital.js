@@ -1,50 +1,23 @@
 const { Schema, model } = require('mongoose');
-const ratingAverage = require('../utils/ratingFormat')
 
 const hospitalSchema = new Schema ({
     hospitalName: {
         type: String,
-        required: 'please enter hospital name',
+        required: true,
         unique: true,
-        trim: true
     },
     location: {
         type: String,
-        required: 'please enter hospital location',
-        trim: true
+        required: true,
     },
     reviews: [
         {
-        type: String,
-        maxlength: 280
-        }
-    ],
-    reviewRating: [
-        {
-        type: Number,
-        maxlength: 5
-        }
-    ],
-    rating:
-    {
-        type: Number,
-        get: (arr) => ratingAverage(arr)
-    }
+          type: Schema.Types.ObjectId,
+          ref: 'Review',
+        },
+      ],
 },
 )
-// {
-//     toJSON: {
-//       virtuals: true,
-//     },
-//   }
-// );
-// tagSchema
-//   .virtual('ratingArray')
-//   // Getter
-//   .get(function () {
-//     return [];
-//   })
-
 
 const Hospital = model('Hospital', hospitalSchema);
 

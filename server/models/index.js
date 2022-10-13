@@ -1,5 +1,6 @@
 // const Review = require('./Review');
 const User = require('./User')
 const Hospital = require('./Hospital')
+const Review = require('./Review')
 
-module.exports = {  User, Hospital };
+module.exports = {  User, Hospital, Review };
