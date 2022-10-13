@@ -4,25 +4,20 @@ const resolvers = {
   Query: {
     hospital: async () => Hospital.find()
   },
-//   Mutation: {
-//     addHospital: async (parent, { hospitalName, location }) => {
-//       return Hospital.create({ hospitalName, location });
-//     },
-// }
-}
-//  Mutation: {
-//     createUser: async (parent, args, context, info) => {
-//       const user = await User.create(args)
-//       const hospital = await Hospital.create({ userId: user.id, })
-//       const data = {
-//         email: user.email,
-//         name: user.username,
-//         id: user.id,
-//         hospitalId: user.hospital.id
-//       }
-//     }
-//   },
-// };
+
+
+  Mutation: {
+    createUser: async (parent, args, context, info) => {
+      const user = await User.create(args)
+      // const hospital = await Hospital.create({ userId: user.id, })
+      const data = {
+        username: user.username,
+        email: user.email,
+        password: user.password
+      }
+    }
+  },
+};
 
   // Mutation: {
   //   addHospital: async (parent, { hospitalName, location }) => {

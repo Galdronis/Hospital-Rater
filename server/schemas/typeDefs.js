@@ -6,6 +6,13 @@ const typeDefs = gql`
       reviewText: String
       hospitalRating: Int
     }
+    type User {
+    username: String,
+    email: String, 
+    _id: ID,
+    hospitalId: String,
+    password: String
+  }
     type Hospital {
       _id: ID
       hospitalName: String
@@ -16,9 +23,9 @@ const typeDefs = gql`
       hospital: [Hospital]
       hospitalName: String
     }
-    # type Mutation {
-    #   addHospital: (hospitalName: String, location: String): Hospital
-    #   createUser(name: String, email: String, id: String, hospitalId: String): Hospital
+    type Mutation {
+      createUser(username: String, email: String, id: String, hospitalId: String, password: String): User
+      # addHospital: (hospitalName: String, location: String): [Hospital]
       # addReview: (reviews: String): [Hospital]
     
 `;
