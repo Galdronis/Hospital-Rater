@@ -1,15 +1,16 @@
-
-const { Review, User } = require('../models');
-
-const { Hospital } = require('../models');
+const { Hospital, Review, User } = require('../models');
 
 const resolvers = {
   Query: {
     hospital: async () => Hospital.find()
   },
-}
-
 //   Mutation: {
+//     addHospital: async (parent, { hospitalName, location }) => {
+//       return Hospital.create({ hospitalName, location });
+//     },
+// }
+}
+//  Mutation: {
 //     createUser: async (parent, args, context, info) => {
 //       const user = await User.create(args)
 //       const hospital = await Hospital.create({ userId: user.id, })

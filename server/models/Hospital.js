@@ -4,36 +4,21 @@ const ratingAverage = require('../utils/ratingFormat')
 const hospitalSchema = new Schema ({
     hospitalName: {
         type: String,
-        required: 'please enter hospital name',
+        required: true,
         unique: true,
-        trim: true
     },
     location: {
         type: String,
-        required: 'please enter hospital location',
-        trim: true
+        required: true,
     },
-    review: [
+    reviews: [
         {
-        type: Schema.Types.ObjectId,
-        ref: 'Review'
-        }
-    ],
+          type: Schema.Types.ObjectId,
+          ref: 'Thought',
+        },
+      ],
 },
 )
-// {
-//     toJSON: {
-//       virtuals: true,
-//     },
-//   }
-// );
-// tagSchema
-//   .virtual('ratingArray')
-//   // Getter
-//   .get(function () {
-//     return [];
-//   })
-
 
 const Hospital = model('Hospital', hospitalSchema);
 
