@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const ratingAverage = require('../utils/ratingFormat')
 
 const hospitalSchema = new Schema ({
     hospitalName: {
