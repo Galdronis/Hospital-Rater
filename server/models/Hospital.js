@@ -13,7 +13,7 @@ const hospitalSchema = new Schema ({
     reviews: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'Thought',
+          ref: 'Review',
         },
       ],
 },

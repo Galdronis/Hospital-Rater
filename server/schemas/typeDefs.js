@@ -17,7 +17,7 @@ const typeDefs = gql`
       _id: ID
       hospitalName: String
       location: String
-      reviews: [Hospital]
+      reviews: [Review]
     }
     type Query {
       hospital: [Hospital]
@@ -25,7 +25,7 @@ const typeDefs = gql`
     }
     type Mutation {
       createUser(username: String, email: String, id: String, hospitalId: String, password: String): User
-      # addHospital: (hospitalName: String, location: String): [Hospital]
+      addHospital(hospitalName: String, location: String): Hospital
       # addReview: (reviews: String): [Hospital]
     }
 `;
