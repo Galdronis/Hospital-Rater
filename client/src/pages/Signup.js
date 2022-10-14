@@ -4,11 +4,10 @@ import { useQuery } from '@apollo/client';
 import Signup from '../components/createBody/index';
 
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+
 
 const LoginView = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
+
 
   return (
     <main>
