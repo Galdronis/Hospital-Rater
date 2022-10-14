@@ -30,10 +30,16 @@ const resolvers = {
     addHospital: async (parent, { hospitalName, location }) => {
       return Hospital.create({ hospitalName, location })
     },
-    // addReview: async (parent, { reviews }) => {
-    //   return Hospital.findOneAndUpdate({ reviews })
-    // }
+    addReview: async (parent, { reviewText, reviewAuthor, hospitalRating }) => {
+      const review = await Review.create({ reviewText, reviewAuthor, hospitalRating });
 
+      await Hospital.findOneAndUpdate(
+        { hospitalName: reviewAuthor },
+        { $addToSet: { review: review._id } }
+      );
+
+      return review;
+    },
   }
 };
 
