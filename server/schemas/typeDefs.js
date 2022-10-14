@@ -28,9 +28,10 @@ const typeDefs = gql`
       hospitalName: String
     }
     type Mutation {
-      createUser(username: String, email: String, id: String, hospitalId: String, password: String): User
+      createUser(username: String, email: String, password: String): User
       login(email: String!, password: String!): Auth
-      addHospital(hospitalName: String, location: String): Hospital
+      addHospital(hospitalName: String, location: String): [Hospital]
+      # addReview(reviews: String): [Hospital]
 
       # addReview: (reviews: String): [Hospital]
     }
