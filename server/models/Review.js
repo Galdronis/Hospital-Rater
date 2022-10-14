@@ -2,6 +2,11 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const reviewSchema = new Schema({
+  reviewAuthor: {
+    type: String,
+    required: true,
+    trim: true
+  },
   reviewText: {
     type: String,
     required: 'Please leave a review',
