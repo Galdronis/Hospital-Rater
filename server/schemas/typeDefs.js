@@ -33,7 +33,7 @@ const typeDefs = gql`
       createUser(username: String, email: String, password: String): User
       login(email: String!, password: String!): Auth
       addHospital(hospitalName: String, location: String): [Hospital]
-      addReview(reviewText: String!, reviewAuthor: String!, hospitalRating: Int): Review
+      addReview(reviewText: String!, reviewAuthor: String!, hospitalRating: Int): [Review]
 
       # addReview: (reviews: String): [Hospital]
     }
