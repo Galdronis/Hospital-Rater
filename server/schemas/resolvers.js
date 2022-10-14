@@ -29,7 +29,10 @@ const resolvers = {
     },
     addHospital: async (parent, { hospitalName, location }) => {
       return Hospital.create({ hospitalName, location })
-    }
+    },
+    // addReview: async (parent, { reviews }) => {
+    //   return Hospital.findOneAndUpdate({ reviews })
+    // }
 
   }
 };
