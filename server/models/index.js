@@ -1,4 +1,3 @@
-// const Review = require('./Review');
 const User = require('./User')
 const Hospital = require('./Hospital')
 const Review = require('./Review')

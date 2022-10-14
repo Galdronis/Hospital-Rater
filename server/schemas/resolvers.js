@@ -32,14 +32,13 @@ const resolvers = {
     },
     addReview: async (parent, { reviewText, reviewAuthor, hospitalRating }) => {
       const review = await Review.create({ reviewText, reviewAuthor, hospitalRating });
-
-      await Hospital.findOneAndUpdate(
-        { hospitalName: reviewAuthor },
-        { $addToSet: { review: review._id } }
-      );
-
-      return review;
-    },
+    
+      // await Hospital.findOneAndUpdate(
+      //   { hospitalName: reviewAuthor },
+      //   { $addToSet: { reviews: review._id } }
+      // );
+      return review
+      }
   }
 };
 

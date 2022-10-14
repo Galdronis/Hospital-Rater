@@ -25,21 +25,6 @@ const reviewSchema = new Schema({
     required: true,
     trim: true
   },
-  // comment: [
-  //   {
-  //     Text: {
-  //       type: String,
-  //       required: true,
-  //       minlength: 1,
-  //       maxlength: 280,
-  //     },
-  //     createdAt: {
-  //       type: Date,
-  //       default: Date.now,
-  //       get: (timestamp) => dateFormat(timestamp),
-  //     },
-  //   },
-  // ],
 });
 
 const Review = model('Review', reviewSchema);
