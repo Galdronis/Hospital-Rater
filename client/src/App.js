@@ -6,8 +6,10 @@ import Signup from './pages/Signup'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Feed from './pages/Feed'
+import FirstHospital from './components/HospitalView'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import Sidebar from './utils/sidebar';
+import './css/sidebar.css';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -18,6 +20,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+      <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
       <div className="flex-column justify-flex-start min-100-vh">
         <Header />
         <div className="container">
@@ -37,6 +40,10 @@ function App() {
             <Route
             path='/feed'
             element={<Feed />}
+            />
+            <Route
+            path='/feed/firstHospital'
+            element={<FirstHospital />}
             />
           </Routes>
         </div>
