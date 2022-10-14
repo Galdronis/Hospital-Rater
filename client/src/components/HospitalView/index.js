@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 
@@ -55,29 +54,37 @@ const FirstHospital = () => {
           onChange={handleChange}
         />
         <input
-          name="password"
+          className="form-input"
+          placeholder="Author of this Glowing Review"
+          name="Author"
+          type="text"
+          value={formState.author}
+          onChange={handleChange}
+        />
+        <input
+          name="rating"
           type="radio"
-          value={formState.password}
+          value= "1"
         /> 1 <br/>
         <input
-          name="password"
+          name="rating"
           type="radio"
-          value={formState.password}
+          value= "2"
         /> 2 <br/>
         <input
-          name="password"
+          name="rating"
           type="radio"
-          value={formState.password}
+          value= "3"
         /> 3 <br/>
         <input
-          name="password"
+          name="rating"
           type="radio"
-          value={formState.password}
+          value= "4"
         /> 4 <br/>
         <input
-          name="password"
+          name="rating"
           type="radio"
-          value={formState.password}
+          value= "5"
         /> 5 <br/>
         <button
           className="btn btn-block btn-info"
