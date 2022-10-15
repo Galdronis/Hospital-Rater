@@ -10,6 +10,9 @@ const hospitalSchema = new Schema ({
         type: String,
         required: true,
     },
+    averageRating: {
+        
+    },
     reviews: [
         {
           type: Schema.Types.ObjectId,
