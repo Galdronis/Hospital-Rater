@@ -7,6 +7,7 @@ query Query {
     hospitalName
     location
     reviews {
+      _id
       reviewAuthor
       reviewText
       hospitalRating
