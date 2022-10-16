@@ -4,7 +4,12 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    hospital: async () => Hospital.find()
+    hospital: async () => {
+     return Hospital.find()
+    },
+    reviews: async () => {
+     return Review.find()
+    }
   },
 
 
