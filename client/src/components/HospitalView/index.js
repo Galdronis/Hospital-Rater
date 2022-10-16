@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from '../../utils/mutations';
 import { QUERY_HOSPITALS } from '../../utils/queries';
@@ -11,18 +11,21 @@ const FirstHospital = () => {
   
   const { data } = useQuery(QUERY_HOSPITALS);
   
-  useEffect(() => {
-      if (data) {
-        console.log(data)
-        console.log(data.hospital)
-        console.log(data.hospital[0].hospitalName)
+  let hospitalName = ""
+  let hospitalLocation = ""
+    if (data) {
+      console.log(data)
+      // console.log(data.hospital)
+      // console.log(data.hospital[0].location)
+      hospitalLocation = data.hospital[0].location
+      hospitalName = data.hospital[0].hospitalName
+    }
+  
+  console.log(hospitalName)
 
-      }
-  })
-    
 
   // console.log(data.hospital)
-  
+
   const [formState, setFormState] = useState({ review: '', author: '' });
   const [review, { error, data1 }] = useMutation(ADD_REVIEW);
 
@@ -54,10 +57,11 @@ const FirstHospital = () => {
     });
   };
 
+
   return (
     <div>
-      <h2>Children's Hospital</h2>
-      <h3>700 Children's Dr, Columbus, Ohio</h3>
+      <h2>{hospitalName}</h2>
+      <h3>{hospitalLocation}</h3>
       <h4>Rating: 7 stars</h4>
       <h5>Reviews</h5>
       <div>This is where the review goes.</div>
@@ -82,28 +86,28 @@ const FirstHospital = () => {
         <input
           name="rating"
           type="radio"
-          value= "1"
-        /> 1 <br/>
+          value="1"
+        /> 1 <br />
         <input
           name="rating"
           type="radio"
-          value= "2"
-        /> 2 <br/>
+          value="2"
+        /> 2 <br />
         <input
           name="rating"
           type="radio"
-          value= "3"
-        /> 3 <br/>
+          value="3"
+        /> 3 <br />
         <input
           name="rating"
           type="radio"
-          value= "4"
-        /> 4 <br/>
+          value="4"
+        /> 4 <br />
         <input
           name="rating"
           type="radio"
-          value= "5"
-        /> 5 <br/>
+          value="5"
+        /> 5 <br />
         <button
           className="btn btn-block btn-info"
           style={{ cursor: 'pointer' }}
