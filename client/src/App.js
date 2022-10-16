@@ -42,7 +42,7 @@ function App() {
             element={<Feed />}
             />
             <Route
-            path='/feed/firstHospital'
+            path='/feed/firstHospital:_id'
             element={<FirstHospital />}
             />
           </Routes>
