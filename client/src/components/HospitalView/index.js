@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from '../../utils/mutations';
+import { QUERY_HOSPITALS } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
+
 
 import Auth from '../../utils/auth';
 
 const FirstHospital = () => {
+  
+  const { data } = useQuery(QUERY_HOSPITALS);
+  
+  useEffect(() => {
+      if (data) {
+        console.log(data)
+        console.log(data.hospital)
+        console.log(data.hospital[0].hospitalName)
+
+      }
+  })
+    
+
+  // console.log(data.hospital)
+  
   const [formState, setFormState] = useState({ review: '', author: '' });
-  const [review, { error, data }] = useMutation(ADD_REVIEW);
+  const [review, { error, data1 }] = useMutation(ADD_REVIEW);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -21,11 +39,11 @@ const FirstHospital = () => {
     event.preventDefault();
     console.log(formState);
     try {
-      const { data } = await review({
+      const { data1 } = await review({
         variables: { ...formState },
       });
 
-      Auth.review(data.review.token);
+      Auth.review(data1.review.token);
     } catch (e) {
       console.error(e);
     }
