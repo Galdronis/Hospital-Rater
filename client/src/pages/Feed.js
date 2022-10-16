@@ -1,9 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
   useQuery
 } from '@apollo/client';
 import { QUERY_HOSPITALS } from '../utils/queries';
