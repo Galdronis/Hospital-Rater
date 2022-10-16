@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../../utils/mutations';
+import { ADD_REVIEW } from '../../utils/mutations';
+import { QUERY_HOSPITALS } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
+
 
 import Auth from '../../utils/auth';
 
 const FirstHospital = () => {
-  const [formState, setFormState] = useState({ review: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  
+  const { data } = useQuery(QUERY_HOSPITALS);
+  
+  useEffect(() => {
+      if (data) {
+        console.log(data)
+        console.log(data.hospital)
+        console.log(data.hospital[0].hospitalName)
+
+      }
+  })
+    
+
+  // console.log(data.hospital)
+  
+  const [formState, setFormState] = useState({ review: '', author: '' });
+  const [review, { error, data1 }] = useMutation(ADD_REVIEW);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -21,18 +39,18 @@ const FirstHospital = () => {
     event.preventDefault();
     console.log(formState);
     try {
-      const { data } = await login({
+      const { data1 } = await review({
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      Auth.review(data1.review.token);
     } catch (e) {
       console.error(e);
     }
 
     setFormState({
       review: '',
-      password: '',
+      author: '',
     });
   };
 
@@ -50,13 +68,13 @@ const FirstHospital = () => {
           placeholder="Your text here..."
           name="review"
           type="text"
-          value={formState.email}
+          value={formState.review}
           onChange={handleChange}
         />
         <input
           className="form-input"
           placeholder="Author of this Glowing Review"
-          name="Author"
+          name="author"
           type="text"
           value={formState.author}
           onChange={handleChange}
