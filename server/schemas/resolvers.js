@@ -35,24 +35,20 @@ const resolvers = {
     addHospital: async (parent, { hospitalName, location }) => {
       return Hospital.create({ hospitalName, location })
     },
-    addReview: async (parent, { reviewText, reviewAuthor, hospitalRating }) => {
-      const review = await Review.create({ reviewText, reviewAuthor, hospitalRating });
-    
-      // await Hospital.findOneAndUpdate(
-      //   { hospitalName: reviewAuthor },
-      //   { $addToSet: { reviews: review._id } }
-      // );
-      return review
-      }
+    addReview: async (parent, { hospitalId, reviewText, reviewAuthor, hospitalRating }) => {
+      return Hospital.findOneAndUpdate(
+        { _id: hospitalId },
+        {
+          $addToSet: { reviews: { reviewText, reviewAuthor, hospitalRating } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
   }
-};
-
-  
-//     addReview: async (parent, { reviews }) => {
-//       return Hospital.create({ reviews })
-//     }
-//   }
-// }
+  };
 
 
 module.exports = resolvers;

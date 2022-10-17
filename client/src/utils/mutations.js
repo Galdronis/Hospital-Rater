@@ -22,12 +22,15 @@ createUser(username: $username, email: $email, password: $password) {
 }
 }
 `;
-export const ADD_REVIEW = gql`
-mutation Mutation($reviewText: String!, $reviewAuthor: String!, $hospitalRating: Int) {
-    addReview(reviewText: $reviewText, reviewAuthor: $reviewAuthor, hospitalRating: $hospitalRating) {
-      reviewAuthor
-      reviewText
-      hospitalRating
+export const ADD_ = gql`
+mutation Mutation($reviewText: String!, $reviewAuthor: String!, $hospitalId: ID, $hospitalRating: Int) {
+    addReview(reviewText: $reviewText, reviewAuthor: $reviewAuthor, hospitalId: $hospitalId, hospitalRating: $hospitalRating) {
+      _id
+      reviews {
+        reviewAuthor
+        reviewText
+        hospitalRating
+      }
     }
   }
-  `;
+ `;

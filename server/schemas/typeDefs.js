@@ -2,12 +2,6 @@ const { gql } = require('apollo-server-express');
 
 
 const typeDefs = gql`
-    type Review {
-      _id: ID
-      reviewAuthor: String
-      reviewText: String
-      hospitalRating: Int
-    }
     type User {
     username: String,
     email: String, 
@@ -21,6 +15,12 @@ const typeDefs = gql`
       location: String
       reviews: [Review]
     }
+    type Review {
+      _id: ID
+      reviewAuthor: String
+      reviewText: String
+      hospitalRating: Int
+    }
     type Auth {
     token: ID!
     user: User
@@ -33,9 +33,7 @@ const typeDefs = gql`
       createUser(username: String, email: String, password: String): User
       login(email: String!, password: String!): Auth
       addHospital(hospitalName: String, location: String): Hospital
-      addReview(reviewText: String!, reviewAuthor: String!, hospitalRating: Int): Review
-
-      # addReview: (reviews: String): [Hospital]
+      addReview(hospitalId: ID, reviewText: String!, reviewAuthor: String!, hospitalRating: Int): Hospital
     }
 `;
 

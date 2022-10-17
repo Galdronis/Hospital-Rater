@@ -10,15 +10,24 @@ const hospitalSchema = new Schema ({
         type: String,
         required: true,
     },
-    averageRating: {
-        
-    },
     reviews: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'Review',
+      {
+        reviewText: {
+          type: String,
+          required: true,
+          minlength: 1,
+          maxlength: 280,
         },
-      ],
+        reviewAuthor: {
+          type: String,
+          required: true,
+        },
+        hospitalRating: {
+          type: Number,
+          required: true
+        }
+      },
+    ],
 },
 )
 
