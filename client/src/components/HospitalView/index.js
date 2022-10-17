@@ -10,9 +10,7 @@ import Auth from '../../utils/auth';
 
 const FirstHospital = () => {
   const { id } = useParams();
-  if (id) {
-    console.log(id)
-  }
+  
 
   const { data } = useQuery(QUERY_HOSPITALS);
 
@@ -29,14 +27,22 @@ const FirstHospital = () => {
     hospitalId = data.hospital[id]._id
     
   }
+  // console.log(hospitalReviews[0].hospitalRating)
+  let something1 = 0
+  const something = (input) => {
+    for (let i = 0; i < input.length; i++) {
+      something1 = something1 + input[i].hospitalRating
+    }
+    console.log(something1)
+    return (something1/input.length)
+  }
   
-
 
   return (
     <div>
       <h2>{hospitalName}</h2>
       <h3>{hospitalLocation}</h3>
-      <h4>Rating: 7 stars</h4>
+      <h4>Hospital Average Rating: {something(hospitalReviews)}</h4>
       <h5>Reviews</h5>
       <div>{hospitalReviews.map((SubmittedReviews) => (
         <ReviewBody
