@@ -3,28 +3,35 @@ import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from '../../utils/mutations';
 import { QUERY_HOSPITALS } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
+import { useParams } from 'react-router-dom';
 
 
 import Auth from '../../utils/auth';
 
 const FirstHospital = () => {
-  
+  const { id } = useParams();
+  if (id) {
+    console.log(id)
+  }
+
   const { data } = useQuery(QUERY_HOSPITALS);
   
   let hospitalName = ""
   let hospitalLocation = ""
-    if (data) {
-      console.log(data)
+  let hospitalReviews = []
+  if (data) {
+
       // console.log(data.hospital)
-      // console.log(data.hospital[0].location)
-      hospitalLocation = data.hospital[0].location
-      hospitalName = data.hospital[0].hospitalName
+
+      hospitalReviews = data.hospital[id].reviews
+      hospitalLocation = data.hospital[id].location
+      hospitalName = data.hospital[id].hospitalName
     }
   
-  console.log(hospitalName)
 
 
-  // console.log(data.hospital)
+
+
 
   const [formState, setFormState] = useState({ review: '', author: '' });
   const [review, { error, data1 }] = useMutation(ADD_REVIEW);
