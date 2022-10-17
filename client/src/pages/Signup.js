@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
+
 
 import Signup from '../components/createBody/index';
 

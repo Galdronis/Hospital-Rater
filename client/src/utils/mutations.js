@@ -14,15 +14,17 @@ mutation Login($email: String!, $password: String!) {
 
 `;
 export const ADD_PROFILE = gql`
-mutation Mutation($username: String, $email: String, $password: String) {
+mutation createUser($username: String, $email: String, $password: String) {
 createUser(username: $username, email: $email, password: $password) {
- username
- email
- password
-}
+      token
+      user {
+        _id
+        username
+      }
+    }
 }
 `;
-export const ADD_ = gql`
+export const ADD_REVIEW = gql`
 mutation Mutation($reviewText: String!, $reviewAuthor: String!, $hospitalId: ID, $hospitalRating: Int) {
     addReview(reviewText: $reviewText, reviewAuthor: $reviewAuthor, hospitalId: $hospitalId, hospitalRating: $hospitalRating) {
       _id

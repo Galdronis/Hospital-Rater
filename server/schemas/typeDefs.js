@@ -30,7 +30,7 @@ const typeDefs = gql`
       reviews: [Review]
     }
     type Mutation {
-      createUser(username: String, email: String, password: String): User
+      createUser(username: String, email: String, password: String): Auth
       login(email: String!, password: String!): Auth
       addHospital(hospitalName: String, location: String): Hospital
       addReview(hospitalId: ID, reviewText: String!, reviewAuthor: String!, hospitalRating: Int): Hospital
