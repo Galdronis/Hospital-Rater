@@ -44,6 +44,8 @@ const ReviewForm = ({ hospitalId }) => {
 
   return (
     <div>
+      {Auth.loggedIn() ? (
+        
       <form onSubmit={handleFormSubmit}>
         <input
           className="form-input"
@@ -91,7 +93,12 @@ const ReviewForm = ({ hospitalId }) => {
           Submit
         </button>
       </form>
-
+      ) : (
+        <p>
+          You need to be logged in to share your thoughts. Please{' '}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        </p>
+      )}
     </div>
   );
 };
