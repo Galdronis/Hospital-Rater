@@ -33,7 +33,7 @@ const FirstHospital = () => {
     for (let i = 0; i < input.length; i++) {
       something1 = something1 + input[i].hospitalRating
     }
-    console.log(something1)
+
     return (something1/input.length)
   }
   
