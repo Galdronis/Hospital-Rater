@@ -4,6 +4,7 @@ import {
 } from '@apollo/client';
 import { QUERY_HOSPITALS } from '../utils/queries';
 import '../css/feed.css'
+import { Link } from "react-router-dom";
 
 
 function Feed() {
@@ -26,7 +27,7 @@ function Feed() {
   <div className="card-body">
     <h5 className="card-title">{hospitalName[0]}</h5>
     <h6 className="card-subtitle mb-2 text-muted">{hospitalLocation[0]}</h6>
-    <a href="/feed/firstHospital/0" className="card-link">reviews</a>
+    <Link to="/feed/firstHospital/0"><p className="card-link">reviews</p></Link>
   </div>
   </div>
   <div className="card thin">
